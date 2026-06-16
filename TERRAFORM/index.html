@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust - Adventure Tracker</title>
+    <style>
+        /* CSS for Design & Animations */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #1e1e2f; 
+            color: #fff; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .card { 
+            background-color: #2a2a40; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+            width: 100%; 
+            max-width: 400px; 
+            text-align: center; 
+        }
+        h2 { margin-top: 0; color: #4facfe; }
+        input { 
+            width: calc(100% - 22px); 
+            padding: 10px; 
+            border: none; 
+            border-radius: 5px; 
+            margin-bottom: 15px; 
+            outline: none; 
+            font-size: 16px; 
+        }
+        button { 
+            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: bold; 
+            width: 100%; 
+            transition: 0.3s; 
+        }
+        button:hover { 
+            opacity: 0.8; 
+            transform: translateY(-2px); 
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+        ul { list-style-type: none; padding: 0; margin-top: 20px; text-align: left; }
+        li { 
+            background-color: #3f3f5a; 
+            margin-bottom: 10px; 
+            padding: 12px 15px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            font-weight: 500;
+        }
+        li:hover { background-color: #4facfe; color: #fff; }
+        /* When item is clicked */
+        .completed { 
+            text-decoration: line-through; 
+            opacity: 0.5; 
+            background-color: #2a2a40;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>WanderLust Adventure Tracker</h2>
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Tap an adventure to mark it as visited!</p>
+        
+        <input type="text" id="destination" placeholder="Enter a new destination...">
+        <button onclick="addAdventure()">Add Adventure</button>
+        
+        <ul id="adventureList">
+            <li>Ladakh Road Trip</li>
+            <li>Goa Scuba Diving</li>
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript for Interactivity
+        function addAdventure() {
+            let input = document.getElementById("destination");
+            let list = document.getElementById("adventureList");
+            
+            if(input.value.trim() !== "") {
+                let li = document.createElement("li");
+                li.textContent = input.value;
+                
+                // Add click feature to new items
+                li.onclick = function() {
+                    this.classList.toggle("completed");
+                };
+                
+                list.appendChild(li);
+                input.value = ""; // Clear the input box
+            } else {
+                alert("Please enter a destination first!");
+            }
+        }
+
+        // Add click feature to existing items
+        let items = document.querySelectorAll("li");
+        items.forEach(function(item) {
+            item.onclick = function() {
+                this.classList.toggle("completed");
+            };
+        });
+    </script>
+</body>
+</html>
