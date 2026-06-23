@@ -1,22 +1,5 @@
-variable "aws_region" {
-
-      description = "AWS REGION NAME "
-      type = string
-
-}  
-
-variable "instance_type" {
-
-      description = "Enter your instance type"
-      type = string
-}  
-
-variable "instance_name" {
-
-      type = string 
-}  
-
-variable ami {
-
-   type = string
+variable "vpc_id" {
+  type        = string
+  description = "The ID of the custom DevOps VPC"
+  default     = "vpc-0bc11181173739e8b"
 }
