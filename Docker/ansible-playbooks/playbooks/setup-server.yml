@@ -1,0 +1,15 @@
+---
+- name: Basic Server Setup
+  hosts: webservers
+  tasks:
+    - name: Display hostname
+      debug:
+        msg: "Setting up {{ ansible_hostname }}"
+
+    - name: Get system info
+      shell: uname -a
+      register: system_info
+
+    - name: Show system info
+      debug:
+        msg: "{{ system_info.stdout }}"

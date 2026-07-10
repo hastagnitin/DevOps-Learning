@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+    - lw_apache
+
