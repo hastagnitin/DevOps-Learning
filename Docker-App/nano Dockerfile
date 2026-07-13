@@ -1,0 +1,14 @@
+Base image - halka phulka Python OS
+FROM python:3.9-slim
+
+# Container ke andar ek working folder set kar rahe hain
+WORKDIR /app
+
+# Ek simple HTML file create kar rahe hain
+RUN echo "<h1>Hello Bhai! Ye tera random Docker container ekdum sahi chal raha hai.</h1>" > index.html
+
+# Port 8000 open kar rahe hain taaki hum isko access kar sakein
+EXPOSE 8000
+
+# Server start karne ki default command
+CMD ["python", "-m", "http.server", "8000"]
