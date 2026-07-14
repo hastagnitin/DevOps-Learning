@@ -12,12 +12,11 @@ provider "aws" {
 
 }
 
-resource "aws_instance" "HCL-WEB" {
-  ami           = "ami-0098dcd2a2aca5b90"
-  instance_type = "t3.micro"
+resource "aws_s3_bucket" "HCL-Bucket" {
+  bucket = "aws-create-bucket-1996"
 
   tags = {
-    Name = "Terraform-EC2"
+    Name = "Terraform-S3"
     ENV  = "DEV"
   }
 
