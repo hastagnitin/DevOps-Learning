@@ -1,1 +1,0 @@
-This will cause an error because the file is opened in read mode.
