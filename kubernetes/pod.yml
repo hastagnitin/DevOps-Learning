@@ -1,10 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp
+  name: pod-c
+  labels:
+    app: testing
+    team: in
+    sc: mumbai
 spec:
-  containers:
-  - name: myapp
+  containers: 
+  - name: pod-c
     image: vimal13/apache-webserver-php
     ports:
     - containerPort: 80
