@@ -1,0 +1,12 @@
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+
+# Security Keys
+*.pem
+
+# AWS CLI & Large zips
+aws/
+awscliv2.zip
