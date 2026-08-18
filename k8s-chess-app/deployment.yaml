@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chess-deployment
+  labels:
+    app: chess-game
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chess-game
+  template:
+    metadata:
+      labels:
+        app: chess-game
+    spec:
+      containers:
+      - name: chess-container
+        image: hastagnitin/k8s-chess-app:v1
+        ports:
+        - containerPort: 80
